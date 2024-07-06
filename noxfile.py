@@ -2,16 +2,14 @@ import nox
 
 
 @nox.session
-def build(session):
+def ruff(session):
     session.install("-r", "dev-requirements.txt")
     session.install("-r", "requirements.txt")
-
-
-@nox.session(reuse_venv=True)
-def ruff(session):
     session.run("ruff", "check")
 
 
-@nox.session(reuse_venv=True)
+@nox.session
 def pyright(session):
+    session.install("-r", "dev-requirements.txt")
+    session.install("-r", "requirements.txt")
     session.run("pyright")

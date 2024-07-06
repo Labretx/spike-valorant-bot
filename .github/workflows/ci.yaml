@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  linting:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+      
+      - name: Pyright
+        if: always()
+        run: |
+          nox -s pyright
+      
+      - name: Ruff
+        if: always()
+        run: |
+          nox -s ruff
