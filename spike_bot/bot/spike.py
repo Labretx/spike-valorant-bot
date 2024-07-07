@@ -2,13 +2,17 @@ from typing import Any
 
 import lightbulb
 
+from spike_bot import DatabaseManager
+
 
 class Spike(lightbulb.BotApp):
     def __init__(
         self,
         token: str,
+        dbm: DatabaseManager | None = None,
         **kwargs: Any,
     ) -> None:
+        self.dbm = dbm
         super().__init__(
             token,
             help_class=None,
