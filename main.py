@@ -1,12 +1,13 @@
+import os
+
 import hikari
 
 from spike_bot import Spike
-from t import DISCORD_KEY
 
 
 def main():
     bot = Spike(
-        DISCORD_KEY,
+        os.environ["SPIKE_TOKEN"],
         intents=hikari.Intents.ALL,
     )
 
