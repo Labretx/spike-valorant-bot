@@ -1,6 +1,6 @@
 import asyncpg
 
-from database import table_creation_queries
+from spike_bot.database.queries import table_creation_queries
 
 
 class DatabaseManager:

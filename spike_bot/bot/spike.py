@@ -2,10 +2,12 @@ from typing import Any
 
 import lightbulb
 
-from spike_bot import DatabaseManager
+from spike_bot.database import DatabaseManager
 
 
 class Spike(lightbulb.BotApp):
+    dbm: DatabaseManager
+
     def __init__(
         self,
         token: str,
