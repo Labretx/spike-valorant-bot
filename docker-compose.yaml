@@ -1,0 +1,25 @@
+services:
+  bot:
+    build: .
+    container_name: spike
+    environment:
+      SPIKE_TOKEN:
+      VAL_API:
+      POSTGRES_PASSWORD:
+    depends_on:
+      - postgres
+  
+  postgres:
+    container_name: postgres
+    build: db/
+    environment:
+      POSTGRES_PASSWORD:
+    ports:
+      - '5432:5432'
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d
+      - ./db/dump:/dumps
+
+volumes:
+  pgdata:

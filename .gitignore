@@ -1,5 +1,6 @@
-t.py
 __pycache__
 venv
 .nox
 .ruff_cache
+db/dump
+local
