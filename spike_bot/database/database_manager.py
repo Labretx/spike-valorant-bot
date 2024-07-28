@@ -1,14 +1,12 @@
-import typing as t
-
 import asyncpg
 
 from spike_bot.database.queries import table_creation_queries
 
 
 class DatabaseManager:
-    connection_pool: t.Optional[asyncpg.Pool]
+    connection_pool: asyncpg.Pool | None
 
-    def __init__(self, connection_pool: t.Optional[asyncpg.Pool]) -> None:
+    def __init__(self, connection_pool: asyncpg.Pool | None) -> None:
         self.connection_pool = connection_pool
 
     async def create_tables(self) -> None:

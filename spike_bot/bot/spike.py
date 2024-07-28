@@ -1,4 +1,4 @@
-import typing as t
+from typing import Any
 
 import lightbulb
 
@@ -6,13 +6,13 @@ from spike_bot.database import DatabaseManager
 
 
 class Spike(lightbulb.BotApp):
-    dbm: t.Optional[DatabaseManager]
+    dbm: DatabaseManager | None
 
     def __init__(
         self,
         token: str,
         dbm: DatabaseManager | None = None,
-        **kwargs: t.Any,
+        **kwargs: Any,
     ) -> None:
         self.dbm = dbm
         super().__init__(
