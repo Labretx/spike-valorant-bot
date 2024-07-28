@@ -15,7 +15,7 @@ def main():
     @bot.listen(hikari.StartedEvent)
     async def on_start(event: hikari.StartedEvent) -> None:
         postgres_password = os.environ["POSTGRES_PASSWORD"]
-        postgres_url = f'postgres://postgres:{postgres_password}@postgres:5432/spike'
+        postgres_url = f"postgres://postgres:{postgres_password}@postgres:5432/spike"
         pool = await asyncpg.create_pool(postgres_url)
         print("Database pool acquired.")
         dbm = DatabaseManager(pool)
